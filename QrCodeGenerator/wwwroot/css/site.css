@@ -55,7 +55,17 @@ body {
 }
 
 h1 {
-    margin-left: 20%;
+    position:relative;
+    margin-left:10%;
     margin-bottom: 10%;
     font-size: 75px;
+}
+
+.close-alert {
+    position: absolute;
+    right: -10px;
+    top: -15px;
+    border-radius: 15px;
+    width: 30px;
+    height: 31px;
 }

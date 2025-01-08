@@ -3,6 +3,7 @@ using QrCodeGenerator.Models;
 using QrCodeGenerator.ViewModels;
 using QrCodeGeneratorHelper.Helper.QRCodeGeneratorHelper;
 using System.Diagnostics;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace QrCodeGenerator.Controllers
 {
@@ -27,7 +28,8 @@ namespace QrCodeGenerator.Controllers
         {
             if (string.IsNullOrEmpty(text))
             {
-                return BadRequest();
+                ViewBag.MensagemErro = "Preencha a entrada";
+                return View();
             }
             byte[] QRCodeAsBytes = qRCodeGeneratorHelper.GenerateQRCode(text);
             string QRCodeAsImageBase64 = $"data:image/png;base64, {Convert.ToBase64String(QRCodeAsBytes)}";
