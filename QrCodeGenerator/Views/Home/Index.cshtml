@@ -8,13 +8,23 @@
 
 <div class="row div-principal">
     <h1>GERADOR DE QR CODE</h1>
+    <br />
+
+    @if (ViewBag.MensagemErro != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="Close">X</button>
+            @ViewBag.MensagemErro
+        </div>
+    }
 
     <div class="col-lg-6 m-auto div-secundaria">
 
         <form asp-action="Index" id="form" method="post">
-            <input class="form-control mb-3 texto" name="text" rows="5" placeholder="Inserir link">
+            <input class="form-control mb-3 texto" name="text" rows="5" placeholder="Inserir link, número ou texto">
             <button type="submit" class="btn btn-primary btn-gerar">Gerar QRCode</button>
         </form>
+        
         @if (QRCodeImageUrl != "")
         {
             <div class="w-50 m-auto" id="apareceQr">
